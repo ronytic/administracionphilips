@@ -23,15 +23,19 @@ include_once '../cabecerahtml.php';
 					</tr>
                     <tr>
 						<td><?php campos("Nombres","nombres","text",$usu['nombre'],0,array("required"=>"required","size"=>30));?></td>
-						<td><?php campos("Paterno","paterno","text",$usu['paterno'],0,array("required"=>"required","size"=>30));?></td>
+						<td><?php campos("Apellido Paterno","paterno","text",$usu['paterno'],0,array("required"=>"required","size"=>30));?></td>
 					</tr>
                     <tr>
-                    	<td><?php campos("Materno","materno","text",$usu['materno'],0,array("required"=>"required","size"=>30));?></td>
-                        <td><?php campos("Ci","ci","text",$usu['ci'],0,array("size"=>30));?></td>
+                    	<td><?php campos("Apellido Materno","materno","text",$usu['materno'],0,array("required"=>"required","size"=>30));?></td>
+                        <td><?php campos("CI","ci","text",$usu['ci'],0,array("size"=>30));?></td>
+                    </tr>
+                    <tr>
+                        <td><?php campos("Dirección","direccion","text",$usu['direccion'],0,array("required"=>"required","size"=>30));?></td>
+                        <td><?php campos("Teléfono","telefono","text",$usu['telefono'],0,array("size"=>30));?></td>
                     </tr>
                     <tr>
 						<td><?php campos("Email","email","text",$usu['email'],0,array("size"=>30));?></td>
-						<td><?php campos("Nivel","nivel","select",array("2"=>"Dirección","3"=>"Unidad de Trafico","4"=>"Técnico","5"=>"Secretaria"),"","",$usu['nivel']);?></td>
+						<td><?php campos("Nivel","nivel","select",array("2"=>"Administrador","3"=>"Inventario","4"=>"Ventas"),"","",$usu['nivel']);?></td>
 					</tr>
 					<tr>
 						<td colspan="2"><?php campos("Observación","observacion","textarea",$usu['obs'],"",array("rows"=>5,"cols"=>50,"size"=>30));?></td>

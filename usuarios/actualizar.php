@@ -12,6 +12,8 @@ $valores=array("usuario"=>"'$usuario'",
 			"materno"=>"'$materno'",
 			"nivel"=>"'$nivel'",
 			"ci"=>"'$ci'",
+			"direccion"=>"'$direccion'",
+			"telefono"=>"'$telefono'",
 			"email"=>"'$email'",
 			"obs"=>"'$observacion'"
 			);
