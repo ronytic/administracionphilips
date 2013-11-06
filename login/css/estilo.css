@@ -1,0 +1,87 @@
+/* CSS Document */
+body{
+	background-image:url(../../imagenes/fondo.png);
+
+}
+#formLogin{
+	/*background-image:url(../../imagenes/body.jpg);*/
+	background-color:#FFF;
+	margin-top:15%;
+	text-align:center;
+	box-shadow: 0 4px 23px 5px rgba(0, 0, 0, 0.2), 0 2px 6px rgba(0,0,0,0.15);
+	padding:30px;
+	
+	background-color:#FFF;
+	margin-top:5%;
+	text-align:center;
+	
+	box-shadow: 0 4px 23px 5px rgba(0, 0, 0, 0.2), 0 2px 6px rgba(0,0,0,0.15);
+	padding:20px;
+	/*background : -linear-gradient(top, rgb(1, 134, 191) 00%, rgb(15, 109, 164) 99%);
+	background : -moz-linear-gradient(top, rgb(1, 134, 191) 00%, rgb(15, 109, 164) 99%);
+	background : -ms-linear-gradient(top, rgb(1, 134, 191) 00%, rgb(15, 109, 164) 99%); 
+	background : -o-linear-gradient(top, rgb(1, 134, 191) 00%, rgb(15, 109, 164) 99%);
+	background : -webkit-linear-gradient(top, rgb(1, 134, 191) 00%, rgb(15, 109, 164) 99%);*/
+	background:#eeede8;
+	background:#FFF;
+}
+#formLogin label{
+	color:#CCC;
+	font-size:15pt;
+	margin:20px;
+}
+#formLogin input[type=text],#formLogin input[type=password]{
+	margin:10px;
+	padding:10px;
+	font-size:12pt;
+	width:160px;
+	border:#CCC 1px solid;
+	-moz-border-radius: 5px; -webkit-border-radius: 5px; -msie-border-radius: 5px;
+	border-bottom: 1px solid #4783c4;
+}
+#formLogin input[type=submit]{
+	padding:10px;
+	font-weight:bolder;
+	border: 1px solid #4783c4;
+	color:#FFF;
+	cursor:pointer;
+	background-color:#4783c4
+}
+#formLogin{
+	color:#FFFFFF;	
+}
+.titulo{
+	margin-top:5px;
+	color:#000;
+	font-weight:bold;
+	padding:5px;
+	text-align:center;
+
+
+	background: #fefefe;
+background: -moz-linear-gradient(top, #fefefe 0%, #eee9f0 100%);
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #fefefe), color-stop(100%, #eee9f0));
+background: -webkit-linear-gradient(top, #fefefe 0%, #eee9f0 100%);
+background: -o-linear-gradient(top, #fefefe 0%, #eee9f0 100%);
+background: -ms-linear-gradient(top, #fefefe 0%, #eee9f0 100%);
+background: linear-gradient(top, #fefefe 0%, #eee9f0 100%);
+border-bottom: 2px solid #4783c4;
+width: auto;
+}
+.cuerpo{
+	border:#CCC 1px solid;
+	padding:5px;
+	background-color:#FFF;	
+}
+.rojoC{
+	-moz-border-radius: 5px; -webkit-border-radius: 5px; -msie-border-radius: 5px;
+	background-color:#b94a48;
+	color:#FFFFFF;
+	padding:5px;
+}
+.naranjaC{
+	-moz-border-radius: 5px; -webkit-border-radius: 5px; -msie-border-radius: 5px;
+	background-color:#f89406;
+	color:#FFFFFF;
+	padding:5px;
+}
