@@ -15,7 +15,7 @@ $pdf=new PDF("P","mm","letter");
 
 $pdf->AddPage();
 mostrarI(array("Nombre"=>$prov['nombre'],
-				"Descripción"=>$prov['direccion'],
+				"Dirección"=>$prov['direccion'],
 				"Teléfono"=>$prov['telefono'],
 				"Nro Cuenta"=>$prov['ncuenta'],
 				
