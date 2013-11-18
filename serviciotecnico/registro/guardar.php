@@ -31,7 +31,7 @@ $valores=array(	"estado"=>"'$estado'",
 				"fechaentrega"=>"'$fechaentrega'",
 				
 				);
-				//$serviciotecnico->insertar($valores);
+				$serviciotecnico->insertar($valores);
 				$mensaje[]="SUS DATOS SE GUARDARON CORRECTAMENTE";
 
 
