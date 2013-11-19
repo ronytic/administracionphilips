@@ -11,7 +11,7 @@ $valores=array(	"fechacompra"=>"'$fechacompra'",
 				//"preciounitario"=>"'$preciounitario'",
 				//"total"=>"'$total'",
 				"codproveedor"=>"'$codproveedor'",
-				"fechavencimiento"=>"'$fechavencimiento'",
+				"modelo"=>"'$modelo'",
 				"observacion"=>"'$observacion'",
 				//"cantidadstock"=>"'$cantidad'",
 				);

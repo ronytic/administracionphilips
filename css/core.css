@@ -493,6 +493,7 @@ table.tablareg tr td{
 	border-bottom:#e5e5e5 1px solid;
 	margin:5px;
 	padding:10px;
+	vertical-align:top
 }
 table.tablareg td.der{
 	text-align:right;

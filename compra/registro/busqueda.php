@@ -2,25 +2,27 @@
 include_once '../../login/check.php';
 if (!empty($_POST)) {
 	$folder="../../";
-	include_once '../../class/productos.php';
+	include_once '../../class/producto.php';
 	include_once '../../class/compra.php';
 	extract($_POST);
 	
 	
-	$productos=new productos;
+	$producto=new producto;
 	$compra=new compra;
 	
 	
-	$codproductos=$codproductos!=""?$codproductos:'%';
+	$codproducto=$codproducto!=""?$codproducto:'%';
 	$codproveedor=$codproveedor!=""?$codproveedor:'%';
-	$fechavencimiento=$fechavencimiento!=""?$fechavencimiento:'%';
+	$modelo=$modelo!=""?$modelo:'%';
+	$fecha=$fecha!=""?$fecha:'%';
 	
-	foreach($compra->mostrarTodo("codproveedor LIKE '$codproveedor' and codproductos LIKE '$codproductos' and fechavencimiento LIKE '$fechavencimiento'")as $mp){$i++;
-	$pro=array_shift($productos->mostrar($mp['codproductos']));
+	
+	foreach($compra->mostrarTodo("codproveedor LIKE '$codproveedor' and codproducto LIKE '$codproducto' and modelo LIKE '$modelo' and fecha LIKE '$fecha'")as $mp){$i++;
+	$pro=array_shift($producto->mostrar($mp['codproducto']));
 	$datos[$i]['codcompra']=$mp['codcompra'];
 	$datos[$i]['producto']=$pro['nombre'];
 	$datos[$i]['fechacompra']=$mp['fechacompra'];
-	$datos[$i]['fechavencimiento']=$mp['fechavencimiento'];
+	$datos[$i]['modelo']=$mp['modelo'];
 	$datos[$i]['cantidad']=$mp['cantidad'];
 	$datos[$i]['cantidadstock']=$mp['cantidadstock'];
 	$datos[$i]['observacion']=$mp['observacion'];
@@ -28,7 +30,7 @@ if (!empty($_POST)) {
 	
 	
 	
-	$titulo=array("fechacompra"=>"Fecha de Compra","producto"=>"Producto","cantidad"=>"Cantidad","cantidadstock"=>"Cantidad Stock","fechavencimiento"=>"Fecha de Vencimiento","observacion"=>"Observación");
+	$titulo=array("fechacompra"=>"Fecha de Compra","producto"=>"Producto","cantidad"=>"Cantidad","cantidadstock"=>"Cantidad Stock","modelo"=>"Modelo","observacion"=>"Observación");
 	if($_SESSION['Nivel']==1 || $_SESSION['Nivel']==2){
 		$eliminar="eliminar.php";
 	}else{

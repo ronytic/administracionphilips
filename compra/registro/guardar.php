@@ -16,12 +16,12 @@ if(($_FILES['curriculum']['type']=="application/pdf" || $_FILES['curriculum']['t
 }
 */
 $valores=array(	"fechacompra"=>"'$fechacompra'",
-				"codproductos"=>"'$codproductos'",
+				"codproducto"=>"'$codproducto'",
 				"cantidad"=>"'$cantidad'",
 				"preciounitario"=>"'$preciounitario'",
 				"total"=>"'$total'",
 				"codproveedor"=>"'$codproveedor'",
-				"fechavencimiento"=>"'$fechavencimiento'",
+				"modelo"=>"'$modelo'",
 				"observacion"=>"'$observacion'",
 				"cantidadstock"=>"'$cantidad'",
 				);
