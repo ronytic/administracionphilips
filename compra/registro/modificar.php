@@ -9,7 +9,7 @@ $mp=array_shift($compra->mostrar($id));
 
 include_once("../../class/producto.php");
 $producto=new producto;
-$pro=todolista($producto->mostrarTodo("","nombre"),"codproducto","nombre","");
+$pro=todolista($producto->mostrarTodo("","nombre"),"codproducto","nombre,descripcion,codbarra","-");
 
 include_once("../../class/proveedor.php");
 $proveedor=new proveedor;
