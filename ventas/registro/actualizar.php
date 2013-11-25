@@ -6,13 +6,9 @@ $venta=new venta;
 extract($_POST);
 //empieza la copia de archivos
 $valores=array(	"fechaventa"=>"'$fechaventa'",
-				//"codproductos"=>"'$codproductos'",
-				//"cantidad"=>"'$cantidadventatotal'",
-				//"preciounitario"=>"'$preciounitario'",
-				//"total"=>"'$total'",
-				"codcliente"=>"'$codcliente'",
-				"coddistribuidor"=>"'$coddistribuidor'",
-				"observacion"=>"'$observacion'",
+"cliente"=>"'$cliente'",
+"ci"=>"'$ci'",
+"observacion"=>"'$observacion'",
 				);
 				$venta->actualizar($valores,$id);
 				$mensaje[]="SUS DATOS SE GUARDARON CORRECTAMENTE";
