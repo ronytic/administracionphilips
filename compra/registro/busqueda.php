@@ -24,13 +24,15 @@ if (!empty($_POST)) {
 	$datos[$i]['fechacompra']=$mp['fechacompra'];
 	$datos[$i]['modelo']=$mp['modelo'];
 	$datos[$i]['cantidad']=$mp['cantidad'];
+	$datos[$i]['preciounitario']=$mp['preciounitario'];
+	$datos[$i]['total']=$mp['total'];
 	$datos[$i]['cantidadstock']=$mp['cantidadstock'];
 	$datos[$i]['observacion']=$mp['observacion'];
 	}
 	
 	
 	
-	$titulo=array("fechacompra"=>"Fecha de Compra","producto"=>"Producto","cantidad"=>"Cantidad","cantidadstock"=>"Cantidad Stock","modelo"=>"Modelo","observacion"=>"Observación");
+	$titulo=array("fechacompra"=>"Fecha de Compra","producto"=>"Producto","cantidad"=>"Cantidad","preciounitario"=>"Precio Uni","total"=>"Total","cantidadstock"=>"Cantidad Stock","modelo"=>"Modelo","observacion"=>"Observación");
 	if($_SESSION['Nivel']==1 || $_SESSION['Nivel']==2){
 		$eliminar="eliminar.php";
 	}else{
