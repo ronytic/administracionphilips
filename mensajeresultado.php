@@ -24,6 +24,10 @@ if($archivolistar=="" && empty($archivolistar)){
 						
 				}
 				?>
+                <?php if(count($botones)){foreach($botones as $ba=>$bn){
+				?><a href="<?php echo $ba;?>?id=<?php echo $id;?>" class="botoninfo" target="_blank" ><?php echo $bn?></a><?php
+				}
+				}?>
                 <hr />
                 <?php if($nuevo==0){?>
                 <a href="<?php echo $archivonuevo;?>" class="botoncorrecto" >Nuevo Registro</a>
