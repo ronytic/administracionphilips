@@ -45,17 +45,7 @@ $ventadetalle=new ventadetalle;
 $venta=new venta;
 $producto=new producto;
 $where="codproducto LIKE '$codproducto' $fechas  $existente and id LIKE '$id'";
-/*if(!empty($fechacontrato)){
-	$where="`fechacontrato`<='$fechacontrato'";
-}
-if(!empty($codobra)){
-	$where=(empty($fechacontrato))?"`codobra`=$codobra":$where." and `codobra`=$codobra";
-}
-if(!empty($tipocontrato)){
-	$where=(empty($where))?$where."`tipocontrato` LIKE '%$tipocontrato%'":$where." and `tipocontrato` LIKE '%$tipocontrato%'";
-}*/
 
-//echo $where;
 $pdf=new PDF("L","mm","legal");
 $pdf->AddPage();
 $totales=array();
