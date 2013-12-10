@@ -8,7 +8,7 @@ class usuarios extends bd{
 	}
 	function mostrars($cod){
 		$this->campos=array("*");	
-		return $this->getRecords("idusuarios='$cod' and activo=1");
+		return $this->getRecords("codusuarios='$cod' and activo=1");
 	}
 }
 ?>

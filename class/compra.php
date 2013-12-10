@@ -14,5 +14,9 @@ class compra extends bd{
 		$this->campos=array("sum(cantidadstock) as cantidadtotalstock");
 		return $this->getRecords("codproducto=$codproductos and activo=1");	
 	}
+	function mostrarCompraGrupo($where){
+		$this->campos=array("sum(cantidad) as cantidad,sum(cantidadstock) as cantidadstock, sum(total) as total,codproducto");
+		return $this->getRecords($where,"fechacompra","codproducto");	
+	}
 }
 ?>

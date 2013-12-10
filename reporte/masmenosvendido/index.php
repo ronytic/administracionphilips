@@ -21,16 +21,17 @@ $datos=todolista($usuarios->mostrarTodo("nivel!=1","paterno,materno,nombre"),"co
         	<div class="titulo"><?php echo $titulo;?></div>
             <form id="busqueda" action="busqueda.php" method="post">
                 <table class="tablabus">
+                <tr>
+                        <td><?php campos("Fecha de Inicio","fechainicio","date","")?></td>
+                        <td><?php campos("Fecha Fin","fechafin","date","")?></td>
+                        <?php /*<td><?php campos("Producto Existente","existente","select",array("0"=>"No","1"=>"Si"))?></td>*/?>
+                    </tr>
                     <tr>
                        <!-- <td colspan="4"><?php campos("Producto","codproducto","select",$prod,0)?></td>-->
                         <td colspan="4" width="300"><?php campos("Vendedor","id","select",$datos,0)?></td>
                         <td colspan="4" width="300"><?php campos("Productos","orden","select",$valor,0,"","mas")?>Vendido</td>
                     </tr>
-                    <tr>
-                        <td><?php campos("Fecha de Inicio","fechainicio","date","")?></td>
-                        <td><?php campos("Fecha Fin","fechafin","date","")?></td>
-                        <?php /*<td><?php campos("Producto Existente","existente","select",array("0"=>"No","1"=>"Si"))?></td>*/?>
-                    </tr>
+                    
                     <tr>
                         <td><?php campos("Ver Reporte","enviar","submit","",0,array("size"=>15));?></td>
                     </tr>
