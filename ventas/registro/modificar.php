@@ -21,7 +21,7 @@ include_once '../../cabecerahtml.php';
 	<div class="contenido imagenfondo">
     	<form action="actualizar.php" method="post" enctype="multipart/form-data" id="formulario">
         <?php campos("","id","hidden",$id)?>
-    	<div class="prefix_3 grid_4 alpha">
+    	<div class="prefix_2 grid_4 alpha">
 			<fieldset>
 				<div class="titulo"><?php echo $titulo?></div>
                 
