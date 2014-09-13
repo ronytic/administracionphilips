@@ -32,7 +32,7 @@ $(document).on("ready",function(){
                 <form action="guardar.php" method="post" enctype="multipart/form-data">
 				<table class="tablareg">
                 	<tr>
-						<td><?php campos("Fecha de Compra","fechacompra","date",date("Y-m-d"),1,array("required"=>"required"));?></td>
+						<td><?php campos("Fecha de Compra","fechacompra","date",date("Y-m-d"),0,array("required"=>"required"));?></td>
 					</tr>
 					<tr>
 						<td colspan="3"><?php campos("Producto","codproducto","select",$pro,1,array("required"=>"required"));?></td>
@@ -46,7 +46,7 @@ $(document).on("ready",function(){
 					</tr>
                     <tr>
 						<td colspan="2"><?php campos("Proveedor","codproveedor","select",$prov);?></td>
-						<td><?php campos("Modelo","modelo","text","",0,array("size"=>40));?></td>
+						<td><?php campos("Modelo","modelo","text","",0,array("size"=>30));?></td>
 					</tr>
                     <tr>
 						<td colspan="3"><?php campos("Observación","observacion","textarea","",0,array("rows"=>5,"cols"=>80));?></td>

@@ -29,7 +29,7 @@ include_once '../../cabecerahtml.php';
                 <?php campos("","id","hidden",$id);?>
 				<table class="tablareg">
                 	<tr>
-						<td><?php campos("Fecha de Compra","fechacompra","date",$mp['fechacompra'],1,array("required"=>"required"));?></td>
+						<td><?php campos("Fecha de Compra","fechacompra","date",$mp['fechacompra'],0,array("required"=>"required"));?></td>
 					</tr>
 					<tr>
 						<td colspan="3"><?php campos("Producto","codproducto","select",$pro,1,array("required"=>"required","disabled"=>"disabled","class"=>"disabled"),$mp['codproducto']);?><br><div class="rojoC pequeno">Por seguridad no se permite la modificación</div></td>
@@ -42,7 +42,7 @@ include_once '../../cabecerahtml.php';
 					</tr>
                     <tr>
 						<td colspan="2"><?php campos("Proveedor","codproveedor","select",$prov,0,"",$mp['codproveedor']);?></td>
-						<td><?php campos("Modelo","modelo","text",$mp['modelo'],0,array("size"=>40));?></td>
+						<td><?php campos("Modelo","modelo","text",$mp['modelo'],0,array("size"=>30));?></td>
 					</tr>
                     <tr>
 						<td colspan="3"><?php campos("Observación","observacion","textarea",$mp['observacion'],0,array("rows"=>5,"cols"=>80));?></td>
