@@ -11,7 +11,7 @@ include_once '../funciones/funciones.php';
 include_once '../cabecerahtml.php';
 ?>
 <?php include_once '../cabecera.php';?>
-    	<div class="prefix_3 grid_4 suffix_3">
+    	<div class="prefix_3 grid_4 suffix_3 imagenfondo">
 			<fieldset>
 				<div class="titulo"><?php echo $titulo;?></div>
                 <form action="actualizar.php" method="post">

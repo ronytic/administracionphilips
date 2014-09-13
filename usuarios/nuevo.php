@@ -6,7 +6,7 @@ include_once '../funciones/funciones.php';
 include_once $folder.'cabecerahtml.php';
 ?>
 <?php include_once $folder.'cabecera.php';?>
-<div class="prefix_3 grid_4 suffix_3 ">
+<div class="prefix_3 grid_4 suffix_3 imagenfondo">
 	<div class="">
     <fieldset class="contenido">
         <div class="titulo"><?php echo $titulo;?></div>
