@@ -68,7 +68,7 @@ $(document).on("ready",function(){
 <div class="grid_12">
 	<div class="contenido imagenfondo">
     	<form action="guardar.php" method="post" enctype="multipart/form-data" id="formulario">
-    	<div class="prefix_3 grid_4 alpha">
+    	<div class="prefix_2 grid_4 alpha">
 			<fieldset>
 				<div class="titulo"><?php echo $titulo?></div>
                 
