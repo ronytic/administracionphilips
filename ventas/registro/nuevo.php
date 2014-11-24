@@ -47,6 +47,11 @@ $(document).on("ready",function(){
 		$(".supertotal").val(stotal.toFixed(2))
 		
 	});
+	$(document).on("change","#ci",function(){
+		var ci=$(this).val();
+		$.post("sacarnombre.php",{"nit":ci},function(data){$("#cliente").val(data)});
+	});
+	
 	$(document).on("change",".pagado",function(){
 		var supertotal=parseFloat($(".supertotal").val());
 		var pagado=parseFloat($(".pagado").val());	
@@ -77,8 +82,9 @@ $(document).on("ready",function(){
 						<td><?php campos("Fecha de Venta","fechaventa","date",date("Y-m-d"),0,array("required"=>"required"));?></td>						<td><?php campos("Vendedor","vendedor","text",$us['nombre']." ".$us['paterno']." ".$us['materno'],0,array("required"=>"required","readonly"=>"readonly","size"=>40));?></td>
 					</tr>
                     <tr>
-						<td><?php campos("Cliente","cliente","text","",0,array("required"=>"required","size"=>40));?></td>										
-                        <td><?php campos("C.I. o NIT","ci","text","",0,array("size"=>30));?></td>
+						<td><?php campos("C.I. o NIT","ci","text","",0,array("size"=>30));?></td>
+                        <td><?php campos("Cliente","cliente","text","",0,array("required"=>"required","size"=>40));?></td>										
+                        
 					</tr>
                 </table>
                 
