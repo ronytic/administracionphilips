@@ -13,6 +13,8 @@ class PDF extends PPDF{
 		$this->CuadroCabecera(30,"Fecha Fin:",20,fecha2Str($fechafin));
 		}
 		$this->Ln();
+		$this->CuadroCabecera(30,"Monto Expresado en Bolivianos",20,"");
+		$this->Ln();
 		$this->TituloCabecera(10,"N");
 		$this->TituloCabecera(55,"Nombre Producto");
 		$this->TituloCabecera(15,"Cant");
