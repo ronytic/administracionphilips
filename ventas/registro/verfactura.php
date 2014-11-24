@@ -17,13 +17,16 @@ $producto=new producto;
 $pro=array_shift($producto->mostrar($mp['codproductos']));
 class PPDF extends FPDF{
 	function Header(){
-		global $ven;
+		global $ven,$id;
 		$this->SetTopMargin(115);
 		$this->SetFont("arial","",10);
 		
 		$this->Image("../../imagenes/documentos/factura.jpg",0,0,216,139);
 		$this->setxy(15,35);
 		$this->Cell(100,3,strftime("%A, %d de %B del %Y",strtotime($ven['fechaventa'])),0);
+		$this->setxy(176,15);
+		$this->Cell(100,3,$id,0);
+		
 		$this->setxy(32,39);
 		$this->Cell(100,3,$ven['cliente'],0);
 		$this->setxy(175,39);
@@ -32,13 +35,16 @@ class PPDF extends FPDF{
 		
 	}
 	function Footer(){
-		global $ven;
+		global $ven,$codigos;
 		$this->setxy(20,122);
 		$this->Cell(135,3,num2letras($ven['total']),0,0,"I");
+		$this->setxy(10,127);
+		$this->Cell(135,3,utf8_decode("Código de Control: ".$codigos[rand(1,30)]),0,0,"I");
 		$this->setxy(180,122);
 		$this->Cell(25,3,$ven['total'],0,0,"R");	
 	}
 }
+
 
 $pdf=new PPDF("L","mm",array(215.9,139.7));
 $pdf->SetTopMargin(55);
