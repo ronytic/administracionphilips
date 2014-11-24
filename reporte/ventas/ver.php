@@ -3,6 +3,9 @@ include_once("../../login/check.php");
 include_once("../../impresion/pdf.php");
 $titulo="Reporte de Venta de Productos";
 extract($_GET);
+
+$CodigoControl=GenerarCodigoControl("wsddsw2!rty1",date("Y-m-d"),$factura,$numeroautorizacion,$importe);
+
 class PDF extends PPDF{
 	function Cabecera(){
 		global $fechainicio,$fechafin;
