@@ -4,7 +4,6 @@ include_once("../../impresion/pdf.php");
 $titulo="Reporte de Venta de Productos";
 extract($_GET);
 
-$CodigoControl=GenerarCodigoControl("wsddsw2!rty1",date("Y-m-d"),$factura,$numeroautorizacion,$importe);
 
 class PDF extends PPDF{
 	function Cabecera(){
@@ -46,10 +45,14 @@ include_once("../../class/producto.php");
 include_once("../../class/ventadetalle.php");
 include_once("../../class/venta.php");
 
+
 $ventadetalle=new ventadetalle;
 $venta=new venta;
 $producto=new producto;
 $where="codproducto LIKE '$codproducto' $fechas  $existente and id LIKE '$id'";
+
+
+$CodigoControl=GenerarCodigoControl("wsddsw2rty1",date("Y-m-d"),$factura,$numeroautorizacion,$importe);
 
 $pdf=new PDF("L","mm","legal");
 $pdf->AddPage();
