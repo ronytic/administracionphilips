@@ -18,5 +18,13 @@ class compra extends bd{
 		$this->campos=array("sum(cantidad) as cantidad,sum(cantidadstock) as cantidadstock, sum(total) as total,codproducto");
 		return $this->getRecords($where,"fechacompra","codproducto");	
 	}
+    function totalcomprames($mes=1,$anio){
+		$this->campos=array("*,count(*) as Cantidad,MONTH(`fechacompra`) as Mes");
+		return $this->getRecords("MONTH(`fechacompra`) = '$mes' and YEAR(`fechacompra`)='$anio' and activo=1");	
+	}
+    function totalcompradia($dia){
+		$this->campos=array("*,count(*) as Cantidad,MONTH(`fechacompra`) as Mes");
+		return $this->getRecords("`fechacompra`='$dia' and activo=1");	
+	}
 }
 ?>
