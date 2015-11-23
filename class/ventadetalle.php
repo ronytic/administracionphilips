@@ -11,5 +11,13 @@ class ventadetalle extends bd{
 		$this->campos=array("sum(cantidad) as cantidadVendida,codproducto,sum(preciounitario),sum(`subtotal`) as subtotal,id");
 		return $this->getRecords($where." and activo=1","sum(cantidad)","codproducto",0,0,$mas);	
 	}
+    function totalventames($mes=1,$anio){
+		$this->campos=array("*,count(*) as Cantidad,MONTH(`fecha`) as Mes");
+		return $this->getRecords("MONTH(`fecha`) = '$mes' and YEAR(`fecha`)='$anio' and activo=1");	
+	}
+    function totalventadia($dia){
+		$this->campos=array("*,count(*) as Cantidad,MONTH(`fecha`) as Mes");
+		return $this->getRecords("`fecha`='$dia' and activo=1");	
+	}
 }
 ?>
