@@ -4,11 +4,11 @@ include_once("../../login/check.php");
 extract($_POST);
 
 
-include_once '../../class/venta.php';
-$venta=new venta;
+include_once '../../class/ventadetalle.php';
+$ventadetalle=new ventadetalle;
 $anio=$_POST['anios'];
 for($i=1;$i<=12;$i++){
-    $v=$venta->totalventames($i,$anio);
+    $v=$ventadetalle->totalventames($i,$anio);
     $v=array_shift($v);
     $datos[mes($i)]=$v['Cantidad'];
 
@@ -47,7 +47,7 @@ $(function () {
             enabled: false
         },
         tooltip: {
-            pointFormat: 'Total de ventas: <b>{y} </b>'
+            pointFormat: 'Total de ventas: <b>{point.y} </b>'
         },
         series: [{
             name: 'Population',
@@ -65,7 +65,7 @@ $(function () {
                 rotation: -90,
                 color: '#FFFFFF',
                 align: 'right',
-                format: '{point.y:.1f}', // one decimal
+                format: '{point.y}', // one decimal
                 y: 10, // 10 pixels down from the top
                 style: {
                     fontSize: '13px',

@@ -5,15 +5,15 @@ extract($_POST);
 
 
 
-include_once '../../class/venta.php';
-$venta=new venta;
+include_once '../../class/ventadetalle.php';
+$ventadetalle=new ventadetalle;
 $anio=$_POST['anios'];
 
 $fechainicio=$_POST['fechainicio'];
 $fechafin=$_POST['fechafin'];
 for($i=strtotime($fechainicio);$i<=strtotime($fechafin);$i=$i+86400){
     $dia=date("Y-m-d",$i);
-    $v=$venta->totalventadia($dia);
+    $v=$ventadetalle->totalventadia($dia);
     $v=array_shift($v);
     $datos[date("d/m/Y",strtotime($dia))]=$v['Cantidad'];
 
@@ -59,7 +59,7 @@ $(function () {
             enabled: false
         },
         tooltip: {
-            pointFormat: 'Total de ventas: <b>{y} </b>'
+            pointFormat: 'Total de ventas: <b>{point.y} </b>'
         },
         series: [{
             name: 'Population',
@@ -77,7 +77,7 @@ $(function () {
                 rotation: -90,
                 color: '#FFFFFF',
                 align: 'right',
-                format: '{point.y:.1f}', // one decimal
+                format: '{point.y}', // one decimal
                 y: 10, // 10 pixels down from the top
                 style: {
                     fontSize: '13px',
