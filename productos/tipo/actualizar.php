@@ -8,7 +8,7 @@ extract($_POST);
 $valores=array(	"nombre"=>"'$nombre'",
 				"descripcion"=>"'$descripcion'",
 				"observacion"=>"'$observacion'",
-				
+
 				);
 				$tipo->actualizar($valores,$id);
 				$mensaje[]="SUS DATOS SE GUARDARON CORRECTAMENTE";
@@ -16,5 +16,7 @@ $valores=array(	"nombre"=>"'$nombre'",
 
 $titulo="Mensaje de Respuesta";
 $folder="../../";
+$listar=0;
+$nuevo=0;
 include_once '../../mensajeresultado.php';
 endif;?>
