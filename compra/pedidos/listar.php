@@ -38,7 +38,7 @@ include_once "../../cabecerahtml.php";
             </fieldset>
         </div>
         <div class="clearfix"></div>
-        <div id="respuesta"></div>
+        <div id="respuesta" class="table-responsive"></div>
     </div>
 </div>
 <?php include_once "../../piepagina.php";?>
