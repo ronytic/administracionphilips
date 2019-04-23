@@ -10,7 +10,7 @@ $valores=array(	"codproducto"=>"'$codproducto'",
 				"preciocotizacion"=>"'$preciocotizacion'",
 				"total"=>"'$total'",
 				"fechaentrega"=>"'$fechaentrega'",
-				
+
 				"nombre"=>"'$nombre'",
 				"ci"=>"'$ci'",
 				"telefono"=>"'$telefono'",
@@ -19,7 +19,8 @@ $valores=array(	"codproducto"=>"'$codproducto'",
 				$pedido->actualizar($valores,$id);
 				$mensaje[]="SUS DATOS SE GUARDARON CORRECTAMENTE";
 
-
+$listar=0;
+$nuevo=0;
 $titulo="Mensaje de Respuesta";
 $folder="../../";
 include_once '../../mensajeresultado.php';

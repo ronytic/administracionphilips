@@ -5,7 +5,8 @@ $titulo="Modificar Pedido";
 $id=$_GET['id'];
 include_once '../../class/pedido.php';
 $pedido=new pedido;
-$sertec=array_shift($pedido->mostrar($id));
+$sertec=$pedido->mostrar($id);
+$sertec=array_shift($sertec);
 
 $sino=array(1=>"Si",0=>"No");
 include_once("../../class/producto.php");
@@ -25,9 +26,9 @@ $(document).ready(function(e) {
 });
 </script>
 <?php include_once '../../cabecera.php';?>
-<div class="grid_12">
-	<div class="contenido imagenfondo">
-    	<div class="prefix_4 grid_4 alpha">
+<div class="col-lg-12">
+	<div class="row imagenfondo">
+    	<div class="col-lg-offset-4 col-lg-4 alpha">
 			<fieldset>
 				<div class="titulo"><?php echo $titulo?></div>
                 <form action="actualizar.php" method="post" enctype="multipart/form-data">
@@ -45,7 +46,7 @@ $(document).ready(function(e) {
                     <tr>
 						<td><?php campos("Total","total","number",$sertec['total'],0,array("size"=>"40","min"=>0,"readonly"=>"readonly"));?></td>
 					</tr>
-                   
+
                     <tr>
 						<td><?php campos("Fecha Entrega","fechaentrega","date",$sertec['fechaentrega'],0,array("size"=>"40"));?></td>
 					</tr>

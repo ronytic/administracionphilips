@@ -21,9 +21,9 @@ $(document).ready(function(e) {
 });
 </script>
 <?php include_once '../../cabecera.php';?>
-<div class="grid_12">
-	<div class="contenido imagenfondo">
-    	<div class="prefix_4 grid_4 alpha">
+<div class="col-lg-12">
+	<div class="row imagenfondo">
+    	<div class="col-lg-offset-4 col-lg-4 alpha">
 			<fieldset>
                 <div class="titulo"><?php echo $titulo?></div>
                 <form action="guardar.php" method="post" enctype="multipart/form-data">
@@ -40,7 +40,7 @@ $(document).ready(function(e) {
                     <tr>
 						<td><?php campos("Total","total","number","0",0,array("size"=>"40","min"=>0,"readonly"=>"readonly"));?></td>
 					</tr>
-                   
+
                     <tr>
 						<td><?php campos("Fecha Entrega","fechaentrega","date","",0,array("size"=>"40"));?></td>
 					</tr>
