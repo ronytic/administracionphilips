@@ -37,15 +37,15 @@ body{
 	border-radius:5px;
 }
 /* Curva de Texto */
-.corner-tl { -moz-border-radius-topleft: 5px; -webkit-border-top-left-radius: 5px; }
-.corner-tr { -moz-border-radius-topright: 5px; -webkit-border-top-right-radius: 5px; }
-.corner-bl { -moz-border-radius-bottomleft: 5px; -webkit-border-bottom-left-radius: 5px; }
-.corner-br { -moz-border-radius-bottomright: 5px; -webkit-border-bottom-right-radius: 5px; }
-.corner-top { -moz-border-radius-topleft: 5px; -webkit-border-top-left-radius: 5px; -moz-border-radius-topright: 5px; -webkit-border-top-right-radius: 5px; }
-.corner-bottom { -moz-border-radius-bottomleft: 5px; -webkit-border-bottom-left-radius: 5px; -moz-border-radius-bottomright: 5px; -webkit-border-bottom-right-radius: 5px; }
-.corner-right {  -moz-border-radius-topright: 5px; -webkit-border-top-right-radius: 5px; -moz-border-radius-bottomright: 5px; -webkit-border-bottom-right-radius: 5px; }
-.corner-left { -moz-border-radius-topleft: 5px; -webkit-border-top-left-radius: 5px; -moz-border-radius-bottomleft: 5px; -webkit-border-bottom-left-radius: 5px; }
-.corner-all,.corner-all td{ -moz-border-radius: 5px; -webkit-border-radius: 5px; -msie-border-radius: 5px;}
+.corner-tl { -moz-border-radius-topleft: 5px; border-top-left-radius: 5px; }
+.corner-tr { -moz-border-radius-topright: 5px; border-top-right-radius: 5px; }
+.corner-bl { -moz-border-radius-bottomleft: 5px; border-bottom-left-radius: 5px; }
+.corner-br { -moz-border-radius-bottomright: 5px; border-bottom-right-radius: 5px; }
+.corner-top { -moz-border-radius-topleft: 5px; border-top-left-radius: 5px; -moz-border-radius-topright: 5px;border-top-right-radius: 5px; }
+.corner-bottom { -moz-border-radius-bottomleft: 5px; border-bottom-left-radius: 5px; -moz-border-radius-bottomright: 5px; border-bottom-right-radius: 5px; }
+.corner-right {  -moz-border-radius-topright: 5px; border-top-right-radius: 5px; -moz-border-radius-bottomright: 5px; border-bottom-right-radius: 5px; }
+.corner-left { -moz-border-radius-topleft: 5px; border-top-left-radius: 5px; -moz-border-radius-bottomleft: 5px; -border-bottom-left-radius: 5px; }
+.corner-all,.corner-all td{ -moz-border-radius: 5px; border-radius: 5px; -msie-border-radius: 5px;}
 
 #cabecera{
 	background-color:#90bd02;
@@ -146,7 +146,7 @@ div.usuario{
 }
 .usuariocuerpo{
 
-	-moz-border-radius: 5px; -webkit-border-radius: 5px; -msie-border-radius: 5px;
+	border-radius: 5px;
 	background-color:#FFF;
 	font:13px/1.5 'Helvetica Neue',Arial,'Liberation Sans',FreeSans,sans-serif;
 	margin:10px 0px 10px 0px;
@@ -184,7 +184,7 @@ div.usuario{
 /*Estilo Contenido*/
 
 .contenido{
-	-moz-border-radius: 5px; -webkit-border-radius: 5px; -msie-border-radius: 5px;
+	border-radius: 5px;
 	font:13px/1.5 'Helvetica Neue',Arial,'Liberation Sans',FreeSans,sans-serif;
 	padding:10px;
 	background-color: #FFF;
@@ -193,7 +193,7 @@ div.usuario{
 	width:auto;
 }
 .contenido fieldset,fieldset {
-	-moz-border-radius: 5px; -webkit-border-radius: 5px; -msie-border-radius: 5px;
+	border-radius: 5px;
 	border:#C3C3C3 1px solid;
 	/*#ff6701*/
 	/*box-shadow:#999 2px 2px 3px;*/
@@ -249,7 +249,7 @@ width: auto;
 	margin:15px;
 }
 .titulom{
-	-moz-border-radius: 5px; -webkit-border-radius: 5px; -msie-border-radius: 5px;
+	border-radius: 5px;
 	background : -linear-gradient(top, rgb(97, 195, 97) 00%, rgb(81, 163, 81) 100%);
 	background : -moz-linear-gradient(top, rgb(97, 195, 97) 00%, rgb(81, 163, 81) 100%);
 	background : -ms-linear-gradient(top, rgb(97, 195, 97) 00%, rgb(81, 163, 81) 100%);
@@ -262,7 +262,7 @@ width: auto;
 	text-align:center;
 }
 .tituloa{
-	-moz-border-radius: 5px; -webkit-border-radius: 5px; -msie-border-radius: 5px;
+	border-radius: 5px;
 	background : -linear-gradient(top, rgb(235, 92, 88) 00%, rgb(191, 56, 49) 100%);
 	background : -moz-linear-gradient(top, rgb(235, 92, 88) 00%, rgb(191, 56, 49) 100%);
 	background : -ms-linear-gradient(top, rgb(235, 92, 88) 00%, rgb(191, 56, 49) 100%);
@@ -275,7 +275,7 @@ width: auto;
 	text-align:center;
 }
 .contenidoc{
-	-moz-border-radius: 5px; -webkit-border-radius: 5px; -msie-border-radius: 5px;
+	border-radius: 5px;
 	font:13px/1.5 'Helvetica Neue',Arial,'Liberation Sans',FreeSans,sans-serif;
 	padding:10px;
 	background-color: #FFF;
@@ -369,11 +369,12 @@ a:hover,.enlace:hover{
 }
 a.botonadicional{
 
-	display: block;
+
 
 
 	padding: 3px 5px 5px 3px;
 	text-align: center;
+	display:table-cell;
 	vertical-align: middle;
 	background-color:#FFF;
 	color: #575557;
@@ -386,12 +387,13 @@ a.botonadicional:hover{
 
 }
 a.boton{
+	display:table-cell;
 	background-color:#FFF;
 	padding: 3px;
 	vertical-align: middle;
-	display: block;
+
 	box-shadow:#999 0px 0px 5px;
-	-moz-border-radius: 5px; -webkit-border-radius: 5px; -msie-border-radius: 5px;
+	border-radius: 5px;
 	text-decoration: none;
 	color: #8C8A8C;
 }
@@ -399,7 +401,7 @@ a.boton:hover{
 	background-color:#FFF;
 }
 a.boton img{
-	-moz-border-radius: 5px; -webkit-border-radius: 5px; -msie-border-radius: 5px;
+	border-radius: 5px;
 }
 
 a.botonerror,a.botoninfo,a.botonalerta,a.botoncorrecto,a.botonsubmenu{
@@ -425,7 +427,7 @@ a.botonsubmenu{
 	text-decoration:none;
 }
 a.botonerror{
-	-moz-border-radius: 5px; -webkit-border-radius: 5px; -msie-border-radius: 5px;
+	border-radius: 5px;
 	background : -linear-gradient(top, rgb(235, 92, 88) 00%, rgb(191, 56, 49) 100%);
 	background : -moz-linear-gradient(top, rgb(235, 92, 88) 00%, rgb(191, 56, 49) 100%);
 	background : -ms-linear-gradient(top, rgb(235, 92, 88) 00%, rgb(191, 56, 49) 100%);
@@ -522,6 +524,7 @@ vertical-align:bottom
 }
 table.tablareg td input,table.tablareg td select,table.tablareg td option,table.tablareg td textarea,table.tablareg td label{
 	/*display: block;*/
+	clear: both;
 }
 /*Tabla de Busqueda*/
 table.tablabus td{
@@ -536,10 +539,10 @@ table.tablabus td input,table.tablabus td select,table.tablabus td option,table.
 }
 /*Fin de tabla de busqueda*/
 table.tabla{
-
+	clear: both;
 }
 table.tabla tr td input{
-
+	clear: both;
 }
 table.tablabusqueda{
 	margin: 5px;
@@ -605,13 +608,13 @@ table td{
 /*fin tablas*/
 /*Tipo de alertas*/
 .rojoC{
-	-moz-border-radius: 5px; -webkit-border-radius: 5px; -msie-border-radius: 5px;
+	border-radius: 5px;
 	background-color:#b94a48;
 	color:#FFFFFF;
 	padding:5px;
 }
 .naranjaC{
-	-moz-border-radius: 5px; -webkit-border-radius: 5px; -msie-border-radius: 5px;
+	border-radius: 5px;
 	background-color:#f89406;
 	color:#FFFFFF;
 	padding:5px;
