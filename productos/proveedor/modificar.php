@@ -5,7 +5,8 @@ $titulo="Modificar Datos de Proveedor";
 $id=$_GET['id'];
 include_once '../../class/proveedor.php';
 $proveedor=new proveedor;
-$prov=array_shift($proveedor->mostrar($id));
+$prov=$proveedor->mostrar($id);
+$prov=array_shift($prov);
 /*include_once("../../class/proveedor.php");
 $proveedor=new proveedor;
 $prov=todolista($proveedor->mostrarTodo(),"codproveedor","nombre","");*/
@@ -14,9 +15,10 @@ include_once '../../funciones/funciones.php';
 include_once '../../cabecerahtml.php';
 ?>
 <?php include_once '../../cabecera.php';?>
-<div class="grid_12">
-	<div class="contenido imagenfondo">
-    	<div class="prefix_4 grid_4 alpha">
+<div class="col-lg-12">
+
+	<div class="row imagenfondo">
+    	<div class="col-lg-offset-4 col-lg-4 alpha">
 			<fieldset>
 				<div class="titulo"><?php echo $titulo?></div>
                 <form action="actualizar.php" method="post" enctype="multipart/form-data">
@@ -43,6 +45,7 @@ include_once '../../cabecerahtml.php';
 			</fieldset>
 		</div>
     	<div class="clear"></div>
-    </div>
+	</div>
+
 </div>
 <?php include_once '../../piepagina.php';?>
