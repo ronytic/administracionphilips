@@ -6,13 +6,14 @@ $narchivo="usuarios";
 include_once("../class/usuarios.php");
 $usuarios1=new usuarios;
 $cod=$_GET['id'];
-$usu=array_shift($usuarios1->mostrar($cod));
+$usu=$usuarios1->mostrar($cod);
+$usu=array_shift($usu);
 include_once '../funciones/funciones.php';
 include_once '../cabecerahtml.php';
 ?>
 <?php include_once '../cabecera.php';?>
-    	<div class="prefix_3 grid_4 suffix_3 imagenfondo">
-			<fieldset>
+    	<div class="col-lg-offset-3 col-lg-6 ">
+			<fieldset class="">
 				<div class="titulo"><?php echo $titulo;?></div>
                 <form action="actualizar.php" method="post">
                 <?php campos("","cod","hidden",$cod)?>

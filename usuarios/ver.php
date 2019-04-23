@@ -4,16 +4,17 @@ $narchivo="usuarios";
 include_once("../class/".$narchivo.".php");
 ${$narchivo}=new $narchivo;
 extract($_GET);
-$dato=array_shift(${$narchivo}->mostrar($id));
+$dato=${$narchivo}->mostrar($id);
+$dato=array_shift($dato);
 $titulo="Datos de Usuario";
 class PDF extends PPDF{
-	
+
 }
 $pdf=new PDF("P","mm","letter");
 $pdf->AddPage();
 switch($dato['nivel']){
 case 1:{$nivel="";}break;
-case 2:{$nivel="Administrador";}break;	
+case 2:{$nivel="Administrador";}break;
 case 3:{$nivel="Inventario";}	break;
 case 4:{$nivel="Ventas";}	break;
 

@@ -6,7 +6,7 @@ include_once("../funciones/funciones.php");
 include_once "../cabecerahtml.php";
 ?>
 <?php include_once "../cabecera.php";?>
-    	<div class="grid_8 prefix_1 alpha">
+    	<div class="col-lg-8 col-lg-offset-2 alpha">
         	<fieldset>
         	<div class="titulo"><?php echo $titulo;?> - Criterio de Búsqueda</div>
             <form id="busqueda" action="busqueda.php" method="post" >
@@ -22,5 +22,5 @@ include_once "../cabecerahtml.php";
             </fieldset>
              <div id="respuesta"></div>
         </div>
-       
+
 <?php include_once "../piepagina.php";?>

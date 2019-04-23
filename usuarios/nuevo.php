@@ -6,8 +6,8 @@ include_once '../funciones/funciones.php';
 include_once $folder.'cabecerahtml.php';
 ?>
 <?php include_once $folder.'cabecera.php';?>
-<div class="prefix_3 grid_4 suffix_3 imagenfondo">
-	<div class="">
+<div class="col-lg-offset-3 col-lg-6  ">
+	<div class="row imagenfondo">
     <fieldset class="contenido">
         <div class="titulo"><?php echo $titulo;?></div>
         <form action="guardar.php" method="post">
