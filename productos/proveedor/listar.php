@@ -11,7 +11,7 @@ include_once "../../cabecerahtml.php";
 <?php include_once "../../cabecera.php";?>
 <div class="col-lg-12">
 	<div class=" imagenfondo">
-    	<div class="grid_8 prefix_2 alpha">
+    	<div class="col-lg-8 col-lg-offset-2 alpha">
         	<fieldset>
         	<div class="titulo"><?php echo $titulo?> - Criterio de Búsqueda</div>
             <form id="busqueda" action="busqueda.php" method="post" >
@@ -25,8 +25,8 @@ include_once "../../cabecerahtml.php";
             </form>
             </fieldset>
         </div>
-        <div class="clear"></div>
-        <div id="respuesta"></div>
+        <div class="clearfix"></div>
+        <div id="respuesta" class="table-responsive"></div>
     </div>
 </div>
 <?php include_once "../../piepagina.php";?>

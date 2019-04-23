@@ -25,8 +25,8 @@ include_once "../../cabecerahtml.php";
             </form>
             </fieldset>
         </div>
-        <div class="clear"></div>
-        <div id="respuesta"></div>
+        <div class="clearfix"></div>
+        <div id="respuesta" class="table-responsive"></div>
     </div>
 </div>
 <?php include_once "../../piepagina.php";?>
