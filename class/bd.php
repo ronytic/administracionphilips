@@ -11,16 +11,11 @@ class bd{
 	var $campos=array();
 	function __construct(){
 		global $bost,$user,$pass,$database;
-		@$link=mysql_connect($host,$user,$pass);
+		@$link=mysqli_connect($host,$user,$pass,$database);
 		if($link){
-			if(@mysql_select_db($database,$link)){
-				mysql_query("SET NAMES utf8");
+
+				mysqli_query($link,"SET NAMES utf8");
 				$this->l=$link;
-			}
-			else{
-				echo "No se pudo encontrar la Base de Datos ";
-				exit();
-			}
 		}else{
 			echo "No se Puede Conectar a la Base de Datos";
 			exit();
@@ -30,23 +25,23 @@ class bd{
 		}
 	}
 	function __destruct(){
-		@mysql_close($this->l);
+		@mysqli_close($this->l);
 	}
 	function getTables(){
 		global $database;
-		return $this->sql("SHOW TABLES FROM ".$database);	
+		return $this->sql("SHOW TABLES FROM ".$database);
 	}
 	function get_db(){
 		global $database;
-		return $database;	
+		return $database;
 	}
 	function sql($consulta){
 		//echo mysql_real_escape_string ($consulta);
-		$consQ =mysql_query (($consulta));
+		$consQ =mysqli_query ($this->l,($consulta));
 		$resultado =array ();
 		if ($consQ)
 		{
-			while ($consF =mysql_fetch_assoc ($consQ))
+			while ($consF =mysqli_fetch_assoc ($consQ))
 				array_push ($resultado, $consF);
 		}
 		return $resultado;
@@ -54,14 +49,14 @@ class bd{
 	function queryE($data,$f){
 		//echo $data;
 		if($f=="lock" && md5("lock")==md5($f))
-		{	
-			mysql_query($data); //or die(mysql_error($this->l));
+		{
+			mysqli_query($this->l,$data); //or die(mysql_error($this->l));
 		}
 	}
 	function statusTable(){
 		$query ="SHOW TABLE STATUS LIKE '$this->tabla'";
-		$res=mysql_query($query);
-		return mysql_fetch_array($res);
+		$res=mysqli_query($this->l,$query);
+		return mysqli_fetch_array($res);
 	}
 	function getRecords($where_str=false, $order_str=false,$group_str=false, $count=false, $start=0, $order_strDesc=false){
 		$where =$where_str ? "WHERE $where_str" : "";
@@ -75,12 +70,12 @@ class bd{
 		return $this->sql ($query);
 	}
 	function last_id(){
-		return mysql_insert_id($this->l);	
-	} 
-	
+		return mysql_insert_id($this->l);
+	}
+
 	public function insertRow ($data,$sw=1,$swadicional=1){
 		$key=array();
-		$val=array();	
+		$val=array();
 		foreach($data as $k => $v){
 			$key[]=$k;
 			$val[]=$v;
@@ -107,11 +102,11 @@ class bd{
 		else
 			$query ="INSERT INTO {$this->tabla} ($campos) VALUES ($datos)";
 		//echo $query."<br>";
-		return mysql_query($query);
+		return mysqli_query($this->l,$query);
 	}
 	function deleteRecord($where_str){
 		$where =$where_str ? "WHERE $where_str" : "";
-		mysql_query ("DELETE FROM {$this->tabla} $where");
+		mysqli_query ($this->l,"DELETE FROM {$this->tabla} $where");
 //		return $this->validateOperation ();
 	}
 	function updateRow($dataValues,$where_str){
@@ -122,9 +117,9 @@ class bd{
 		}
 		$datos=implode(",",$data);
 		//echo "UPDATE {$this->tabla} SET $datos $where";
-		mysql_query ("UPDATE {$this->tabla} SET $datos $where");
+		mysqli_query ($this->l,"UPDATE {$this->tabla} SET $datos $where");
 	}
-	/*Metodos de gestion de usuarios*/ 
+	/*Metodos de gestion de usuarios*/
 	function insertar($Values,$swadicional=1){
 		$this->insertRow($Values,1,$swadicional);
 	}
@@ -132,7 +127,7 @@ class bd{
 		$this->campos=array("*");
 		return $this->getRecords("cod".$this->tabla."=$Cod");
 	}
-	
+
 	function mostrarTodo($where='',$orden=false,$cantidad=0){
 		$this->campos=array('*');
 		$orden=$orden?$orden:"cod".$this->tabla;
@@ -178,10 +173,10 @@ class bd{
 		return array_shift($this->getRecords($condicion."activo=1","cod".$this->tabla,0,1,0,1));
 	}
 	function actualizar($values,$Cod){
-		$this->updateRow($values,"cod".$this->tabla."=$Cod");	
+		$this->updateRow($values,"cod".$this->tabla."=$Cod");
 	}
 	function eliminar($Cod){
-		$this->updateRow(array("activo"=>0),"cod".$this->tabla."=$Cod");	
+		$this->updateRow(array("activo"=>0),"cod".$this->tabla."=$Cod");
 	}
 	/*Fin de Metodos*/
 }
