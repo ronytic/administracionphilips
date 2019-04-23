@@ -4,7 +4,7 @@ include_once 'class/submenu.php';
 $menu=new menu;
 $submenu=new submenu;
 ?>
-<div  class="grid_12" >
+<div  class="col-lg-12" >
 <br>
 <div id='cssmenu'>
 <ul>
@@ -26,7 +26,7 @@ $submenu=new submenu;
 </div>
 </div>
 <div class="clear"></div>
-<div class="grid_12">
+<div class="col-lg-12">
 	<div class="usuariocuerpo">
 		<span class="pequenol">Nombre:</span> <?php echo $us['nombre'];?> | 
 		<span class="pequenol">Usuario:</span> <?php echo $us['usuario'];?> |
