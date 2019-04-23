@@ -3,6 +3,7 @@ include_once("login/check.php");
 $titulo="Inicio";
 $_SESSION['idmenu']=0;
 $_SESSION['subm']=0;
+$folder="";
 ?>
 <?php include_once("cabecerahtml.php"); ?>
 <link href="css/default/default.css" type="text/css" rel="stylesheet" />
