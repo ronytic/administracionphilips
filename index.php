@@ -15,7 +15,7 @@ $_SESSION['subm']=0;
     });
 </script>
 <?php include_once("cabecera.php");?>
-<div class="grid_6">
+<div class="col-lg-6">
     <div class="contenido">
     	<div class="theme-light">
     	<div id="slider" class="nivoSlider">
@@ -25,7 +25,7 @@ $_SESSION['subm']=0;
         </div>
     </div>
 </div>
-<div class="grid_6">
+<div class="col-lg-6">
     <div class="contenido textoinicio">
     	<h3>Visión</h3>
     El vídeo proporciona una manera eficaz para ayudarle a demostrar el punto. Cuando haga clic en Vídeo en línea, puede pegar el código para insertar del vídeo que desea agregar.
