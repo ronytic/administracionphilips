@@ -7,17 +7,20 @@ class PDF extends PPDF{
 }
 include_once("../../class/serviciotecnico.php");
 $serviciotecnico=new serviciotecnico;
-$sertec=array_shift($serviciotecnico->mostrar($id));
+$sertec=$serviciotecnico->mostrar($id);
+$sertec=array_shift($sertec);
 
 include_once("../../class/producto.php");
 $producto=new producto;
-$prod=array_shift($producto->mostrar($sertec['codproducto']));
+$prod=$producto->mostrar($sertec['codproducto']);
+$prod=array_shift($prod);
 
 
 
 include_once("../../class/tipo.php");
 $tipo=new tipo;
-$tip=array_shift($tipo->mostrar($prod['codtipo']));
+$tip=$tipo->mostrar($prod['codtipo']);
+$tip=array_shift($tip);
 
 $pdf=new PDF("P","mm",array(215.9,139.7));
 
