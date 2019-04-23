@@ -8,7 +8,7 @@ $pro=todolista($producto->mostrarTodo("","nombre"),"codproducto","nombre,descrip
 
 include_once("../../class/proveedor.php");
 $proveedor=new proveedor;
-$prov=todolista($proveedor->mostrarTodo("","nombre"),"codproveedor","nombre,origen","-");
+$prov=todolista($proveedor->mostrarTodo("","nombre"),"codproveedor","nombre","-");
 
 include_once '../../funciones/funciones.php';
 include_once '../../cabecerahtml.php';
@@ -20,13 +20,13 @@ $(document).on("ready",function(){
 		var preciounitario=$("#preciounitario").val();
 		var total=(cantidad*preciounitario).toFixed(2);
 		$("#total").val(total);
-	});	
+	});
 });
 </script>
 <?php include_once '../../cabecera.php';?>
-<div class="grid_12">
-	<div class="contenido imagenfondo">
-    	<div class="prefix_2 grid_4 alpha">
+<div class="col-lg-12">
+	<div class="row imagenfondo">
+    	<div class="col-lg-offset-1 col-lg-10 alpha">
 			<fieldset>
 				<div class="titulo"><?php echo $titulo?></div>
                 <form action="guardar.php" method="post" enctype="multipart/form-data">
@@ -39,9 +39,9 @@ $(document).on("ready",function(){
 					</tr>
 					<tr>
 						<td><?php campos("Cantidad","cantidad","number","0",0,array("class"=>"der enlinea","min"=>0,"required"=>"required"));?></td>
-					
+
 						<td><?php campos("Precio Unitario en <strong>Bs</strong>","preciounitario","number","0.00",0,array("step"=>"0.1","min"=>0,"class"=>"der enlinea"));?></td>
-					
+
 						<td><?php campos("Total","total","text","0.00",0,array("class"=>"der","readonly"=>"readonly"));?>Bs</td>
 					</tr>
                     <tr>

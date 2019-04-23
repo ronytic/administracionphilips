@@ -5,7 +5,8 @@ $titulo="Modificar Compra de Producto";
 $id=$_GET['id'];
 include_once '../../class/compra.php';
 $compra=new compra;
-$mp=array_shift($compra->mostrar($id));
+$mp=$compra->mostrar($id);
+$mp=array_shift($mp);
 
 include_once("../../class/producto.php");
 $producto=new producto;
@@ -13,16 +14,16 @@ $pro=todolista($producto->mostrarTodo("","nombre"),"codproducto","nombre,descrip
 
 include_once("../../class/proveedor.php");
 $proveedor=new proveedor;
-$prov=todolista($proveedor->mostrarTodo("","nombre"),"codproveedor","nombre,origen","-");
+$prov=todolista($proveedor->mostrarTodo("","nombre"),"codproveedor","nombre","-");
 
 
 include_once '../../funciones/funciones.php';
 include_once '../../cabecerahtml.php';
 ?>
 <?php include_once '../../cabecera.php';?>
-<div class="grid_12">
-	<div class="contenido imagenfondo">
-    	<div class="prefix_2 grid_4 alpha">
+<div class="col-lg-12">
+	<div class="row imagenfondo">
+    	<div class="col-lg-offset-1 col-lg-10 alpha">
 			<fieldset>
 				<div class="titulo"><?php echo $titulo?></div>
                 <form action="actualizar.php" method="post" enctype="multipart/form-data">
