@@ -25,7 +25,7 @@ $(document).ready(function(e) {
 	<div class="contenido imagenfondo">
     	<div class="prefix_4 grid_4 alpha">
 			<fieldset>
-				<div class="titulo"><?php echo $titulo?></div>
+                <div class="titulo"><?php echo $titulo?></div>
                 <form action="guardar.php" method="post" enctype="multipart/form-data">
 				<table class="tablareg">
                     <tr>
