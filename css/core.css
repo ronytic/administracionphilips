@@ -19,7 +19,7 @@ body{
 	background-color:#e7ebf2;
 
 }
-.container_12{
+.container{
 	background-color:#FFF;
 	border-radius:3px;
 	box-shadow:#333333 0px 0px 10px;
@@ -29,6 +29,8 @@ body{
 }
 .banner{
 	margin-top:10px;	
+	height:200px;
+	background-image:url(../imagenes/cabecera2.jpg);
 }
 .banner img{
 	border-radius:5px;
