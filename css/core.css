@@ -275,12 +275,12 @@ width: auto;
 	text-align:center;
 }
 .contenidoc{
-	border-radius: 5px;
+	/* border-radius: 5px;
 	font:13px/1.5 'Helvetica Neue',Arial,'Liberation Sans',FreeSans,sans-serif;
 	padding:10px;
 	background-color: #FFF;
 	border: #c7c7c7 1px solid;
-	margin-bottom: 5px;
+	margin-bottom: 5px; */
 }
 .contenidoc ul{
 	margin: 1px;
