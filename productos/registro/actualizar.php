@@ -4,14 +4,16 @@ if(!empty($_POST)):
 include_once("../../class/producto.php");
 $producto=new producto;
 extract($_POST);
+$listar=0;
+$nuevo=0;
 //empieza la copia de archivos
 $valores=array(	"nombre"=>"'$nombre'",
 				"descripcion"=>"'$descripcion'",
 				"codtipo"=>"'$codtipo'",
 				"codbarra"=>"'$codbarra'",
-				
+
 				"observacion"=>"'$observacion'",
-				
+
 				);
 				$producto->actualizar($valores,$id);
 				$mensaje[]="SUS DATOS SE GUARDARON CORRECTAMENTE";

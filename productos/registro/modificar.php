@@ -5,7 +5,8 @@ $titulo="Modificar Producto";
 $id=$_GET['id'];
 include_once '../../class/producto.php';
 $producto=new producto;
-$prod=array_shift($producto->mostrar($id));
+$prod=$producto->mostrar($id);
+$prod=array_shift($prod);
 
 include_once("../../class/tipo.php");
 $tipo=new tipo;
@@ -18,9 +19,9 @@ include_once '../../funciones/funciones.php';
 include_once '../../cabecerahtml.php';
 ?>
 <?php include_once '../../cabecera.php';?>
-<div class="grid_12">
-	<div class="contenido imagenfondo">
-    	<div class="prefix_4 grid_4 alpha">
+<div class="col-lg-12">
+	<div class="row imagenfondo">
+    	<div class="col-lg-offset-4 col-lg-5 alpha">
 			<fieldset>
 				<div class="titulo"><?php echo $titulo?></div>
                 <form action="actualizar.php" method="post" enctype="multipart/form-data">
