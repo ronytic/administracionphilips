@@ -6,7 +6,8 @@ $id=$_GET['id'];
 
 include_once("../../class/venta.php");
 $venta=new venta;
-$ven=array_shift($venta->mostrar($id));
+$ven=$venta->mostrar($id);
+$ven=array_shift($ven);
 
 include_once("../../class/ventadetalle.php");
 $ventadetalle=new ventadetalle;
@@ -14,7 +15,8 @@ $ventadetalle=new ventadetalle;
 
 include_once("../../class/producto.php");
 $producto=new producto;
-$pro=array_shift($producto->mostrar($mp['codproductos']));
+$pro=$producto->mostrar($mp['codproductos']);
+$pro=array_shift($pro);
 class PPDF extends FPDF{
 	function Header(){
 		global $ven,$id;
@@ -55,7 +57,8 @@ $pdf->AddPage();
 
 $pdf->SetX(10);
 foreach($ventadetalle->mostrarTodo("codventa=".$ven['codventa']) as $vd){
-	$prod=array_shift($producto->mostrar($vd['codproducto']));
+    $prod=$producto->mostrar($vd['codproducto']);
+	$prod=array_shift($prod);
 	$pdf->SetX(10);
 	$pdf->Cell(26,3,$vd['cantidad'],0,0,"C");
 	$pdf->Cell(117,3,$prod['nombre'],0,0,"L");

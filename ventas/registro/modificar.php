@@ -5,7 +5,8 @@ $titulo="Modificar Venta de Producto";
 $id=$_GET['id'];
 include_once '../../class/venta.php';
 $venta=new venta;
-$ven=array_shift($venta->mostrar($id));
+$ven=$venta->mostrar($id);
+$ven=array_shift($ven);
 
 include_once '../../class/ventadetalle.php';
 $ventadetalle=new ventadetalle;
