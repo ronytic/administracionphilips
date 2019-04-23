@@ -1,5 +1,5 @@
 <?php
-include_once("db.php");
+include_once("bd.php");
 class logusuarios extends bd{
 	var $tabla="logusuarios";
 	function estadoTabla(){
