@@ -53,7 +53,8 @@ foreach($pro as $prod){
 	$totalproducto=$inv['cantidadtotalstock'];
 	//echo $totalproducto."<br>";
 	//echo $totalproducto;
-	$pr=array_shift($producto->mostrar($codproductos));
+	$pr=$producto->mostrar($codproductos);
+	$pr=array_shift($pr);
 	$nombreproducto=$pr['nombre'];
 
 	if($totalproducto<$cantidad){
@@ -66,7 +67,8 @@ foreach($pro as $prod){
 				$id=$idventa;
 				$botones=array("vernota.php"=>"Ver Nota de Entrega","verfactura.php"=>"Ver Factura");
 				$cantidad=$inv['cantidadstock']-$cantidad;
-				$valores=array("cantidadstock"=>"$cantidad","fechaventa"=>"'$fecha'");
+				//echo $cantidad;
+				$valores=array("cantidadstock"=>"$cantidad");//,"fechaventa"=>"'$fecha'");
 				$compra->actualizar($valores,$inv["codcompra"]);
 
 				$valores=array(	"codventa"=>"'$idventa'",

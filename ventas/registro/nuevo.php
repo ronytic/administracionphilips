@@ -93,7 +93,8 @@ $(document).on("ready",function(){
 		</div>
         <div class="col-lg-12 alpha">
         	<fieldset>
-            	<!--<div class="titulo"><?php echo $titulo?></div>-->
+				<!--<div class="titulo"><?php echo $titulo?></div>-->
+				<div class="table-responsive">
                 <table class="tablareg">
 					<tr class="titulo"><td>N</td><td style="width:600px !important">Producto</td><td>Stock</td><td>Cantidad</td><td>Precio Unitario</td><td>SubTotal</td><td>Observación</td></tr>
 
@@ -106,8 +107,9 @@ $(document).on("ready",function(){
                     <input type="text" name="devolucion" class="der devolucion" value="0" readonly size="10" style="width:100px"></td><td></td></tr>
 
 				</table>
+				</div>
                 <div class="rojoC">Revise los Datos, no se Podrán modificar posteriormente</div>
-                <input type="submit" value="Confirmar Compra">
+                <input type="submit" value="Confirmar Venta">
             </fieldset>
         </div>
         </form>
