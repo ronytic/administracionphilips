@@ -40,6 +40,8 @@ if($fechainicio!="" && $fechafin!=""){
 	$fechainicio=$fechainicio!=""?$fechainicio:"%";
 	$fechafin=$fechafin!=""?$fechafin:"%";
 	$fechas=" and  (fecha BETWEEN '$fechainicio' and '$fechafin')";
+}else{
+	$fechas="";
 }
 include_once("../../class/producto.php");
 include_once("../../class/ventadetalle.php");
