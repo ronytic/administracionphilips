@@ -1,4 +1,4 @@
-<?php 
+<?php
 include_once '../../login/check.php';
 if (!empty($_POST)) {
 	$folder="../../";
@@ -11,9 +11,11 @@ if (!empty($_POST)) {
 	$estadogarantia=($estadogarantia!="")?"estadogarantia='$estadogarantia'":"estadogarantia LIKE '%'";
 	$serviciotecnico=new serviciotecnico;
 	$sertec=$serviciotecnico->mostrarTodo("nombre LIKE '%$nombre%' and ci LIKE '%$ci%' and nserie LIKE '%$nserie%' and fechaentrega LIKE '%$fechaentrega%' and $codproducto and $estado and $estadogarantia");
+	$i=0;
 	foreach($sertec as $st){$i++;
-		$prod=array_shift($producto->mostrar($st['codproducto']));
-		
+		$prod=$producto->mostrar($st['codproducto']);
+		$prod=array_shift($prod);
+
 		$datos[$i]['codserviciotecnico']=$st['codserviciotecnico'];
 		$datos[$i]['producto']=$prod['nombre'];
 		$datos[$i]['nombre']=$st['nombre'];
@@ -26,7 +28,7 @@ if (!empty($_POST)) {
 		$datos[$i]['estado']=$st['estado']?"Si":"No";
 		$datos[$i]['codserviciotecnico']=$st['codserviciotecnico'];
 	}
-	
+
 	$titulo=array("producto"=>"Producto","nombre"=>"Nombre","ci"=>"C.I.","telefono"=>"Teléfono","nserie"=>"N Serie","fechaentrega"=>"Fecha de Entrega","total"=>"Total","estado"=>"Solucionado","estadogarantia"=>"Estado de Garantia");
 	listadoTabla($titulo,$datos,1,"modificar.php","eliminar.php","ver.php");
 }

@@ -3,7 +3,7 @@ include_once("../../impresion/pdf.php");
 $titulo="Solicitud de Servicio Técnico";
 $id=$_GET['id'];
 class PDF extends PPDF{
-	
+
 }
 include_once("../../class/serviciotecnico.php");
 $serviciotecnico=new serviciotecnico;
@@ -22,7 +22,8 @@ $tipo=new tipo;
 $tip=$tipo->mostrar($prod['codtipo']);
 $tip=array_shift($tip);
 
-$pdf=new PDF("P","mm",array(215.9,139.7));
+// $pdf=new PDF("P","mm",array(215.9,139.7));
+$pdf=new PDF("P","mm","letter");
 
 $pdf->AddPage();
 $pdf->CuadroCuerpoPersonalizado(20,"Dirección:",0,"",0,"B");
@@ -94,7 +95,7 @@ $pdf->CuadroCuerpoPersonalizado(15,"",0,"",0,"");
 $pdf->CuadroCuerpoPersonalizado(40,$sertec['total'],0,"",0,"");
 /*$foto="../foto/".$emp['foto'];
 if(!empty($emp['foto']) && file_exists($foto)){
-	$pdf->Image($foto,140,50,40,40);	
+	$pdf->Image($foto,140,50,40,40);
 }
 */
 $pdf->Output();

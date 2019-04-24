@@ -19,12 +19,14 @@ $valores=array(	"estado"=>"'$estado'",
 				"saldo"=>"'$saldo'",
 				"total"=>"'$total'",
 				"fechaentrega"=>"'$fechaentrega'",
-				
+
 				);
 				$serviciotecnico->actualizar($valores,$id);
 				$mensaje[]="SUS DATOS SE GUARDARON CORRECTAMENTE";
 
 
+				$listar=0;
+				$nuevo=0;
 $titulo="Mensaje de Respuesta";
 $folder="../../";
 include_once '../../mensajeresultado.php';

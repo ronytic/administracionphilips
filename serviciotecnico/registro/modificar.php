@@ -5,7 +5,8 @@ $titulo="Modificar Servicio Técnico";
 $id=$_GET['id'];
 include_once '../../class/serviciotecnico.php';
 $serviciotecnico=new serviciotecnico;
-$sertec=array_shift($serviciotecnico->mostrar($id));
+$sertec=$serviciotecnico->mostrar($id);
+$sertec=array_shift($sertec);
 
 $garantia=array(1=>"Si",0=>"No");
 include_once("../../class/producto.php");
@@ -26,9 +27,9 @@ $(document).ready(function(e) {
 });
 </script>
 <?php include_once '../../cabecera.php';?>
-<div class="grid_12">
-	<div class="contenido imagenfondo">
-    	<div class="prefix_4 grid_4 alpha">
+<div class="col-lg-12">
+	<div class="row imagenfondo">
+    	<div class="col-lg-offset-3 col-lg-5 alpha">
 			<fieldset>
 				<div class="titulo"><?php echo $titulo?></div>
                 <form action="actualizar.php" method="post" enctype="multipart/form-data">
