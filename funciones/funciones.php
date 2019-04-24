@@ -384,4 +384,7 @@ function fecha2Str($fecha="",$t=1){
 function capitalizar($texto){
 	return ucwords($texto);
 }
+function num($numero){
+	return number_format($numero,2);
+}
 ?>
