@@ -14,9 +14,9 @@ include_once "../../cabecerahtml.php";
 $datos=todolista($usuarios->mostrarTodo("nivel!=1","paterno,materno,nombre"),"codusuarios","paterno,materno,nombre");
 ?>
 <?php include_once "../../cabecera.php";?>
-<div class="grid_12">
-	<div class="contenido imagenfondo">
-    	<div class="grid_8 prefix_2 alpha">
+<div class="col-lg-12">
+	<div class="row imagenfondo">
+    	<div class="col-lg-8 col-lg-offset-2 alpha">
         	<fieldset>
         	<div class="titulo"><?php echo $titulo;?></div>
             <form id="busqueda" action="busqueda.php" method="post">
@@ -31,7 +31,7 @@ $datos=todolista($usuarios->mostrarTodo("nivel!=1","paterno,materno,nombre"),"co
                         <td colspan="4" width="300"><?php campos("Vendedor","id","select",$datos,0)?></td>
                         <td colspan="4" width="300"><?php campos("Productos","orden","select",$valor,0,"","mas")?>Vendido</td>
                     </tr>
-                    
+
                     <tr>
                         <td><?php campos("Ver Reporte","enviar","submit","",0,array("size"=>15));?></td>
                     </tr>
@@ -39,8 +39,8 @@ $datos=todolista($usuarios->mostrarTodo("nivel!=1","paterno,materno,nombre"),"co
             </form>
             </fieldset>
         </div>
-        <div class="clear"></div>
-        <div id="respuesta"></div>
+        <div class="clearfix"></div>
+        <div id="respuesta" class="table-responsive"></div>
     </div>
 </div>
 <?php include_once "../../piepagina.php";?>

@@ -20,7 +20,7 @@ class PDF extends PPDF{
 		$this->TituloCabecera(40,"Cantidad Vendida");
 		$this->TituloCabecera(40,"Precio Total Vendido");
 		$this->TituloCabecera(70,"Vendedores");
-	}	
+	}
 }
 
 
@@ -30,6 +30,8 @@ if($fechainicio!="" && $fechafin!=""){
 	$fechainicio=$fechainicio!=""?$fechainicio:"%";
 	$fechafin=$fechafin!=""?$fechafin:"%";
 	$fechas=" and  (fecha BETWEEN '$fechainicio' and '$fechafin')";
+}else{
+	$fechas="";
 }
 $orden=$orden=="mas"?1:0;
 include_once("../../class/producto.php");
@@ -52,24 +54,29 @@ $cantidadt=0;
 $preciot=0;
 $totalt=0;
 $cantidadstock=0;
+$i=0;
 foreach($ventadetalle->masMenosVendido($where,$orden) as $inv){$i++;
-	$vende=array_shift($usuarios->mostrars($inv['id']));
-	$ven=array_shift($venta->mostrar($inv['codventa']));
+	print_r($inv);
+	$vende=$usuarios->mostrars($inv['id']);
+	// $vende=array_shift($vende);
+	// $ven=$venta->mostrar($inv['codventa']);
+	// $ven=array_shift($ven);
 	$cantidadt+=$inv['cantidadVendida'];
 	$preciot+=$inv['preciounitario'];
 	$totalt+=$inv['subtotal'];
 	$cantidadstock+=$inv['cantidadstock'];
 
-	$pro=array_shift($producto->mostrar($inv['codproducto']));
-	
-	
+	$pro=$producto->mostrar($inv['codproducto']);
+	$pro=array_shift($pro);
+
+
 	$pdf->CuadroCuerpo(10,$i,0,"R");
 	$pdf->CuadroCuerpo(80,$pro['nombre'],0,"");
 	$pdf->CuadroCuerpo(40,($inv['cantidadVendida']),1,"R",1);
 	$pdf->CuadroCuerpo(40,($inv['subtotal']),1,"R",1);
 	//$pdf->CuadroCuerpo(20,($inv['cantidadstock']),1,"R",1);
 	$pdf->CuadroCuerpo(70,($vende['paterno']." ".$vende['materno']." ".$vende['nombre']),0,"",1);
-	
+
 	$pdf->ln();
 }
 $pdf->Linea();
