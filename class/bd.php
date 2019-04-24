@@ -70,7 +70,7 @@ class bd{
 		return $this->sql ($query);
 	}
 	function last_id(){
-		return mysql_insert_id($this->l);
+		return mysqli_insert_id($this->l);
 	}
 
 	public function insertRow ($data,$sw=1,$swadicional=1){
@@ -81,7 +81,7 @@ class bd{
 			$val[]=$v;
 		}
 		if($swadicional==1){
-			$codusuario=$_SESSION['codusuario'];
+			$codusuario=$_SESSION['idusuario'];
 			if(empty($codusuario)){$codusuario=1;};
 			$fecha=date("Y-m-d");
 			$hora=date("H:i:s");
