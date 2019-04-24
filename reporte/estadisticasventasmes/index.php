@@ -15,17 +15,17 @@ include_once "../../cabecerahtml.php";
 <script language="javascript" src="../../js/highcharts.js" type="text/javascript"></script>
 <script language="javascript" src="../../js/exporting.js" type="text/javascript"></script>
 <?php include_once "../../cabecera.php";?>
-<div class="grid_12">
-	<div class="contenido">
-    	<div class="grid_8 prefix_2 alpha noimprimir">
+<div class="col-lg-12">
+	<div class="row">
+    	<div class="col-lg-8 col-lg-offset-2 alpha noimprimir">
         	<fieldset>
         	<div class="titulo"><?php echo $titulo;?></div>
             <form id="busqueda" action="busqueda.php" method="post">
                 <table class="tablabus">
                     <tr>
                          <?php campos("Año","anios","select",$anios,0,"",date("Y"));?></td>
-                        
-                        
+
+
                     </tr>
                     <tr>
                         <td><?php campos("Ver Gráfica","enviar","submit","",0,array("size"=>15));?></td>
