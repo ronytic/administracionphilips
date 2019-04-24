@@ -31,13 +31,13 @@ if(($_FILES['curriculum']['type']=="application/pdf" || $_FILES['curriculum']['t
 	@$curriculum=$_FILES['curriculum']['name'];
 	@copy($_FILES['curriculum']['tmp_name'],"../curriculum/".$_FILES['curriculum']['name']);
 }else{
-	//mensaje que no es valido el tipo de archivo	
+	//mensaje que no es valido el tipo de archivo
 	$mensaje[]="Archivo no válido del curriculum. Verifique e intente nuevamente";
 }
 */
 foreach($pro as $prod){
 	if($prod['codproducto']==""){
-		continue;	
+		continue;
 	}
 	$codproductos=$prod['codproducto'];
 	$cantidad=$prod['cantidad'];
@@ -45,7 +45,7 @@ foreach($pro as $prod){
 	$preciounitario=$prod['preciounitario'];
 	$subtotal=$prod['subtotal'];
 	$observacion=$prod['observacion'];
-	
+
 	$fecha=date("Y-m-d");
 	$totalproducto=0;
 	$inv=$compra->sumarTotalProducto("$codproductos");
@@ -55,7 +55,7 @@ foreach($pro as $prod){
 	//echo $totalproducto;
 	$pr=array_shift($producto->mostrar($codproductos));
 	$nombreproducto=$pr['nombre'];
-	
+
 	if($totalproducto<$cantidad){
 		$mensaje[]="No Existe en Inventario la Cantidad que Solicita<hr><strong><br>Nombre Producto: $nombreproducto<br>Cantidad de Inventario: $totalproducto<br>Cantidad de Solicitada: $cantidad</strong>";
 	}else{
@@ -68,7 +68,7 @@ foreach($pro as $prod){
 				$cantidad=$inv['cantidadstock']-$cantidad;
 				$valores=array("cantidadstock"=>"$cantidad","fechaventa"=>"'$fecha'");
 				$compra->actualizar($valores,$inv["codcompra"]);
-				
+
 				$valores=array(	"codventa"=>"'$idventa'",
 					"codproducto"=>"'$codproductos'",
 					"cantidad"=>"'$cantidadventatotal'",
@@ -77,8 +77,8 @@ foreach($pro as $prod){
 					"observacion"=>"'$observacion'",
 					);
 				$ventadetalle->insertar($valores);
-	
-				break;	
+
+				break;
 			}else{
 				//echo $cantidadsalida;
 				$cantidad=$cantidad-$inv['cantidadstock'];
@@ -87,7 +87,7 @@ foreach($pro as $prod){
 			}
 		}
 	}
-	
+
 }
 //$mensaje[]="SUS DATOS SE GUARDARON CORRECTAMENTE";
 

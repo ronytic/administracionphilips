@@ -15,30 +15,30 @@ $ventadetalle=new ventadetalle;
 
 include_once("../../class/producto.php");
 $producto=new producto;
-$pro=$producto->mostrar($mp['codproductos']);
-$pro=array_shift($pro);
+// $pro=$producto->mostrar($mp['codproductos']);
+// $pro=array_shift($pro);
 class PPDF extends FPDF{
 	function Header(){
 		global $ven;
 		$this->SetTopMargin(115);
 		$this->SetFont("arial","",10);
-		
+
 		$this->Image("../../imagenes/documentos/nota.jpg",0,0,216,139);
 		$this->setxy(15,35);
 		$this->Cell(100,3,strftime("%A, %d de %B del %Y",strtotime($ven['fechaventa'])),0);
 		$this->setxy(32,39);
 		$this->Cell(100,3,$ven['cliente'],0);
 		$this->setxy(175,39);
-		$this->Cell(100,3,$ven['ci'],0);	
+		$this->Cell(100,3,$ven['ci'],0);
 		$this->SetY(50);
-		
+
 	}
 	function Footer(){
 		global $ven;
 		$this->setxy(20,122);
 		$this->Cell(135,3,num2letras($ven['total']),0,0,"I");
 		$this->setxy(180,122);
-		$this->Cell(25,3,$ven['total'],0,0,"R");	
+		$this->Cell(25,3,$ven['total'],0,0,"R");
 	}
 }
 
@@ -62,7 +62,7 @@ foreach($ventadetalle->mostrarTodo("codventa=".$ven['codventa']) as $vd){
 }
 /*$foto="../foto/".$emp['foto'];
 if(!empty($emp['foto']) && file_exists($foto)){
-	$pdf->Image($foto,140,50,40,40);	
+	$pdf->Image($foto,140,50,40,40);
 }
 */
 $pdf->Output();

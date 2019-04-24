@@ -22,30 +22,31 @@ include_once '../../cabecerahtml.php';
 	<div class="contenido imagenfondo">
     	<form action="actualizar.php" method="post" enctype="multipart/form-data" id="formulario">
         <?php campos("","id","hidden",$id)?>
-    	<div class="prefix_2 grid_4 alpha">
+    	<div class="col-lg-12 alpha">
 			<fieldset>
 				<div class="titulo"><?php echo $titulo?></div>
-                
+
 				<table class="tablareg">
                 	<tr>
 						<td><?php campos("Fecha de Venta","fechaventa","date",$ven['fechaventa'],0,array("required"=>"required"));?></td>						<td><?php campos("Vendedor","vendedor","text",$us['nombre']." ".$us['paterno']." ".$us['materno'],0,array("required"=>"required","readonly"=>"readonly","size"=>40));?></td>
 					</tr>
                     <tr>
-						<td><?php campos("Cliente","cliente","text",$ven['cliente'],0,array("required"=>"required","size"=>40));?></td>										
+						<td><?php campos("Cliente","cliente","text",$ven['cliente'],0,array("required"=>"required","size"=>40));?></td>
                         <td><?php campos("C.I. o NIT","ci","text",$ven['ci'],0,array("size"=>30));?></td>
 					</tr>
                 </table>
-                
-                
+
+
 			</fieldset>
 		</div>
-        <div class="prefix_0 grid_10 alpha">
+        <div class="col-lg-12 alpha">
         	<fieldset>
             	<!--<div class="titulo"><?php echo $titulo?></div>-->
                 <table class="tablareg">
 					<tr class="titulo"><td>N</td><td style="width:600px !important">Producto</td><td>Cantidad</td><td>Precio Unitario</td><td>SubTotal</td><td>Observación</td></tr>
                     <?php $i=0; foreach($ventadetalle->mostrarTodo("codventa=".$id) as $vd){$i++;
-						$prod=array_shift($producto->mostrar($vd['codproducto']));
+                        $prod=$producto->mostrar($vd['codproducto']);
+						$prod=array_shift($prod);
 						?>
                     <tr>
                     	<td class="der"><?php echo $i?></td>
@@ -56,7 +57,7 @@ include_once '../../cabecerahtml.php';
                         <td><input type="text" name="pro[<?php echo $l?>][observacion]" value="<?php echo $vd['observacion']?>" size="10" maxlength="10" style="width:120px" class="der" readonly></td>
                     </tr>
                     <?php }?>
-                    
+
                     <tr class="contenido"><td colspan="3">
                     Observación:<br>
                     <textarea name="observacion" cols="50" rows="4"><?php echo $ven['observacion']?></textarea>
@@ -64,7 +65,7 @@ include_once '../../cabecerahtml.php';
                     <input type="text" name="supertotal" class="der supertotal" value="<?php echo $ven['total']?>" readonly size="10" style="width:100px">
                     <input type="text" name="pagado" class="der pagado" value="<?php echo $ven['pagado']?>"  size="10" style="width:100px" readonly>
                     <input type="text" name="devolucion" class="der devolucion" value="<?php echo $ven['devolucion']?>" readonly size="10" style="width:100px"></td><td></td></tr>
-                    
+
 				</table>
                 <div class="rojoC">Por seguridad no se permite la modificación de los productos vendidos</div>
                 <input type="submit" value="Modificar Datos de Venta">
