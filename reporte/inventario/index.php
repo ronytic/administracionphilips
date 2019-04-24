@@ -11,9 +11,9 @@ $prod=todolista($producto->mostrarTodos("","nombre"),"codproducto","nombre","");
 include_once "../../cabecerahtml.php";
 ?>
 <?php include_once "../../cabecera.php";?>
-<div class="grid_12">
-	<div class="contenido imagenfondo">
-    	<div class="grid_8 prefix_2 alpha">
+<div class="col-lg-12">
+	<div class="row imagenfondo">
+    	<div class="col-lg-8 col-lg-offset-2 alpha">
         	<fieldset>
         	<div class="titulo"><?php echo $titulo;?></div>
             <form id="busqueda" action="busqueda.php" method="post">

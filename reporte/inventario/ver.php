@@ -22,7 +22,7 @@ class PDF extends PPDF{
 		$this->TituloCabecera(25,"CantidadStock");
 		$this->TituloCabecera(25,"Cant. Venta");
 		$this->TituloCabecera(45,"Precio Total Venta");
-	}	
+	}
 }
 
 
@@ -30,12 +30,12 @@ class PDF extends PPDF{
 $where=$codproducto!=""?"codproducto=$codproducto and activo=1":" activo=1";
 
 
-$existente=$existente=="1"?'and cantidadstock>0':'and cantidadstock=0';
-if($fechainicio!="" && $fechafin!=""){
-	$fechainicio=$fechainicio!=""?$fechainicio:"%";
-	$fechafin=$fechafin!=""?$fechafin:"%";
-	$fechas=" and  (fechacompra BETWEEN '$fechainicio' and '$fechafin')";
-}
+// $existente=$existente=="1"?'and cantidadstock>0':'and cantidadstock=0';
+// if($fechainicio!="" && $fechafin!=""){
+// 	$fechainicio=$fechainicio!=""?$fechainicio:"%";
+// 	$fechafin=$fechafin!=""?$fechafin:"%";
+// 	$fechas=" and  (fechacompra BETWEEN '$fechainicio' and '$fechafin')";
+// }
 
 include_once("../../class/producto.php");
 include_once("../../class/compra.php");
@@ -54,17 +54,22 @@ $cantidadt=0;
 $preciot=0;
 $totalt=0;
 $cantidadstock=0;
+$i=0;
+$cantidadtv=0;
+$totaltv=0;
 foreach($compra->mostrarCompraGrupo($where) as $inv){$i++;
 	$cantidadt+=$inv['cantidad'];
 	$totalt+=$inv['total'];
 	$cantidadstock+=$inv['cantidadstock'];
-	
-	$ventad=array_shift($ventadetalle->sumarProducto($inv['codproducto']));
+
+	$ventad=$ventadetalle->sumarProducto($inv['codproducto']);
+	$ventad=array_shift($ventad);
 	$cantidadtv+=$ventad['cantidadventatotal'];
 	$totaltv+=$ventad['total'];
-	
-	$pro=array_shift($producto->mostrar($inv['codproducto']));
-	
+
+	$pro=$producto->mostrar($inv['codproducto']);
+	$pro=array_shift($pro);
+
 	//$prov=array_shift($proveedor->mostrar($inv['codproveedor']));
 	$pdf->CuadroCuerpo(10,$i,0,"R");
 	$pdf->CuadroCuerpo(55,$pro['nombre'],0,"");
@@ -73,7 +78,7 @@ foreach($compra->mostrarCompraGrupo($where) as $inv){$i++;
 	$pdf->CuadroCuerpo(25,($inv['cantidadstock']),1,"R",1);
 	$pdf->CuadroCuerpo(25,($ventad['cantidadventatotal']),1,"R",1);
 	$pdf->CuadroCuerpo(45,($ventad['total']),1,"R",1);
-	
+
 	$pdf->ln();
 }
 $pdf->Linea();
