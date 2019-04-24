@@ -24,10 +24,14 @@ $(document).on("ready",function(){
 
 	$(".aumentar").click();
 	$(document).on("change",".producto",function(){
+		var codproducto=$(this).val();
 		var l=$(this).attr("rel-linea");
 		var stock=$(".producto[rel-linea="+l+"]>option:selected").attr("rel-cantidad");
 		$("input[rel-stock="+l+"]").val(stock);
 		$("input[rel-cantidad="+l+"]").attr("max",stock);
+		$.post("cpp.php",{codproducto:codproducto},function(data){
+			$(".preciounitario[rel-linea="+l+"]").val(data);
+		});
 
 
 	});
