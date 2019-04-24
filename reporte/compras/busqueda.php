@@ -6,4 +6,4 @@ foreach($_POST as $k=>$v){
 
 $datos=implode("&",$datos);
 ?>
-<iframe src="ver.php?<?php echo $datos;?>" width="100%" height="800"></iframe>
+<iframe src="ver.php?<?php echo $datos;?>" width="100%" height="800" frameborder="0"></iframe>

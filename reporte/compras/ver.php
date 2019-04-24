@@ -24,7 +24,7 @@ class PDF extends PPDF{
 		$this->TituloCabecera(25,"FechaCompra");
 		$this->TituloCabecera(45,"Proveedor");
 		$this->TituloCabecera(50,"Observación");
-	}	
+	}
 }
 
 
@@ -35,6 +35,8 @@ if($fechainicio!="" && $fechafin!=""){
 	$fechainicio=$fechainicio!=""?$fechainicio:"%";
 	$fechafin=$fechafin!=""?$fechafin:"%";
 	$fechas=" and  (fechacompra BETWEEN '$fechainicio' and '$fechafin')";
+}else{
+	$fechas="";
 }
 include_once("../../class/producto.php");
 include_once("../../class/compra.php");
@@ -51,14 +53,16 @@ $cantidadt=0;
 $preciot=0;
 $totalt=0;
 $cantidadstock=0;
+$i=0;
 foreach($compra->mostrarTodos($where,"fechacompra") as $inv){$i++;
 	$cantidadt+=$inv['cantidad'];
 	$preciot+=$inv['preciounitario'];
 	$totalt+=$inv['total'];
 	$cantidadstock+=$inv['cantidadstock'];
-
-	$pro=array_shift($producto->mostrar($inv['codproducto']));
-	$prov=array_shift($proveedor->mostrar($inv['codproveedor']));
+	$pro=$producto->mostrar($inv['codproducto']);
+	$pro=array_shift($pro);
+	$prov=$proveedor->mostrar($inv['codproveedor']);
+	$prov=array_shift($prov);
 	$pdf->CuadroCuerpo(10,$i,0,"R");
 	$pdf->CuadroCuerpo(55,$pro['nombre'],0,"");
 	$pdf->CuadroCuerpo(15,($inv['cantidad']),1,"R",1);
@@ -68,7 +72,7 @@ foreach($compra->mostrarTodos($where,"fechacompra") as $inv){$i++;
 	$pdf->CuadroCuerpo(25,fecha2Str($inv['fechacompra']),1,"",1);
 	$pdf->CuadroCuerpo(45,($prov['nombre']),1,"",1);
 	$pdf->CuadroCuerpo(50,($inv['observacion']),1,"L",1);
-	
+
 	$pdf->ln();
 }
 $pdf->Linea();
