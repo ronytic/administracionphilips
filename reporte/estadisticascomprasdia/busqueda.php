@@ -7,7 +7,7 @@ extract($_POST);
 
 include_once '../../class/compra.php';
 $compra=new compra;
-$anio=$_POST['anios'];
+// $anio=$_POST['anios'];
 
 $fechainicio=$_POST['fechainicio'];
 $fechafin=$_POST['fechafin'];
@@ -22,8 +22,8 @@ for($i=strtotime($fechainicio);$i<=strtotime($fechafin);$i=$i+86400){
 //echo strtotime($fechafin)-strtotime($fechainicio);
 /*
 for($i=strtotime($fechainicio);$i<=strtotime($fechafin);$i=$i+86400){
-    
-    echo date("Y-m-d",$i)."<br>";    
+
+    echo date("Y-m-d",$i)."<br>";
 }*/
 //print_r($datos);
 ?>
@@ -67,10 +67,10 @@ $(function () {
                 <?php foreach($datos as $k=>$v){
                 ?>
                 ['<?php echo $k?>', <?php echo $v?>],
-                <?php    
+                <?php
                 }?>
-                
-                
+
+
             ],
             dataLabels: {
                 enabled: true,
