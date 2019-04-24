@@ -345,7 +345,7 @@ function num2letras($num, $fem = false, $dec = true) {
    }
    $tex = $neg . substr($tex, 1) . $fin;
    //Zi hack --> return ucfirst($tex);
-   $end_num=ucfirst($tex).'  '.$float[1].'/100';
+  @ $end_num=ucfirst($tex).'  '.$float[1].'/100';
    return $end_num;
 }
 function mostrarI($datos){
