@@ -56,7 +56,7 @@ $totalt=0;
 $cantidadstock=0;
 $i=0;
 foreach($ventadetalle->masMenosVendido($where,$orden) as $inv){$i++;
-	print_r($inv);
+	// print_r($inv);
 	$vende=$usuarios->mostrars($inv['id']);
 	// $vende=array_shift($vende);
 	// $ven=$venta->mostrar($inv['codventa']);
