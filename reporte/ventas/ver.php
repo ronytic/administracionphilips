@@ -27,7 +27,7 @@ class PDF extends PPDF{
 		$this->TituloCabecera(50,"Cliente");
 		$this->TituloCabecera(20,"C.I.");
 		$this->TituloCabecera(60,"Observación");
-	}	
+	}
 }
 
 
@@ -35,7 +35,7 @@ $codproducto=$codproducto!=""?$codproducto:"%";
 
 $id=$id!=""?$id:"%";
 
-$existente=$existente=="1"?'and cantidadstock>0':'';
+// $existente=$existente=="1"?'and cantidadstock>0':'';
 if($fechainicio!="" && $fechafin!=""){
 	$fechainicio=$fechainicio!=""?$fechainicio:"%";
 	$fechafin=$fechafin!=""?$fechafin:"%";
@@ -49,10 +49,10 @@ include_once("../../class/venta.php");
 $ventadetalle=new ventadetalle;
 $venta=new venta;
 $producto=new producto;
-$where="codproducto LIKE '$codproducto' $fechas  $existente and id LIKE '$id'";
+$where="codproducto LIKE '$codproducto' $fechas   and id LIKE '$id'";
 
 
-$CodigoControl=GenerarCodigoControl("wsddsw2rty1",date("Y-m-d"),$factura,$numeroautorizacion,$importe);
+// $CodigoControl=GenerarCodigoControl("wsddsw2rty1",date("Y-m-d"),$factura,$numeroautorizacion,$importe);
 
 $pdf=new PDF("L","mm","legal");
 $pdf->AddPage();
@@ -60,17 +60,20 @@ $totales=array();
 $cantidadt=0;
 $preciot=0;
 $totalt=0;
-$cantidadstock=0;
+// $cantidadstock=0;
+$i=0;
 foreach($ventadetalle->mostrarTodos($where,"fecha") as $inv){$i++;
-	$ven=array_shift($venta->mostrar($inv['codventa']));
+	$ven=$venta->mostrar($inv['codventa']);
+	$ven=array_shift($ven);
 	$cantidadt+=$inv['cantidad'];
 	$preciot+=$inv['preciounitario'];
 	$totalt+=$inv['subtotal'];
-	$cantidadstock+=$inv['cantidadstock'];
+	// $cantidadstock+=$inv['cantidadstock'];
 
-	$pro=array_shift($producto->mostrar($inv['codproducto']));
-	
-	
+	$pro=$producto->mostrar($inv['codproducto']);
+	$pro=array_shift($pro);
+
+
 	$pdf->CuadroCuerpo(10,$i,0,"R");
 	$pdf->CuadroCuerpo(80,$pro['nombre'],0,"");
 	$pdf->CuadroCuerpo(20,($inv['cantidad']),1,"R",1);
@@ -81,7 +84,7 @@ foreach($ventadetalle->mostrarTodos($where,"fecha") as $inv){$i++;
 	$pdf->CuadroCuerpo(50,($ven['cliente']),0,"",1);
 	$pdf->CuadroCuerpo(20,($ven['ci']),0,"",1);
 	$pdf->CuadroCuerpo(60,($inv['observacion']),0,"L",1);
-	
+
 	$pdf->ln();
 }
 $pdf->Linea();
